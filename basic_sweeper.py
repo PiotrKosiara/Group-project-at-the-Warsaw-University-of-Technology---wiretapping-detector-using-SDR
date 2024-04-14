@@ -10,7 +10,11 @@ sdr.freq_correction = 60
 sdr.gain = 5
 
 
-def sweep(start_freq, end_freq, step):
+def sweep(start_freq, end_freq, step, window):
+    sdr = RtlSdr()
+    sdr.sample_rate = 2.5e6
+    sdr.freq_correction = 60
+    sdr.gain = 5
     print("===========Starting sweep================")
     for freq in range(start_freq, end_freq, step):
         sdr.center_freq = freq
@@ -30,12 +34,11 @@ def sweep(start_freq, end_freq, step):
 
 if __name__ == "__main__":
     app = QApplication([])
-    window = LED()
+    window = MainWindow()
     window.show()
 
     start_freq = 432*10**6
     end_freq = 435*10**6
     step = 1*10**5
-
     while True:
-        sweep(start_freq, end_freq, step)
+        sweep(start_freq, end_freq, step, window)
