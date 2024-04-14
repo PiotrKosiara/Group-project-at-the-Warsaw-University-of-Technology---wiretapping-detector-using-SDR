@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QLabel
 from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtCore import Qt
+from time import sleep
 
 class DiodyBar(QWidget):
     def __init__(self, parent=None):
@@ -44,3 +45,18 @@ class MainWindow(QMainWindow):
         self.diody_bar.set_P(value)
         self.label.setText("P: {:.2f}".format(value))
 
+# def xd(nums):
+#     for num in nums:
+#         window.update_led(num)
+#         QApplication.processEvents()
+#         sleep(2)
+#
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#
+#     nums = [10, 200, 30, 10, 200, 30, 100, 30, 100, 20, 20, 200, 0, 255, 30]
+#     xd(nums)
+#
+#     sys.exit(app.exec_())
